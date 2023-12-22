@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #voting-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div id="voting-container">
+    <h1>Voting Management System</h1>
+
+    <div class="option" id="option1">
+        <span>Option 1</span>
+        <button onclick="vote('option1')">Vote</button>
+    </div>
+
+    <div class="option" id="option2">
+        <span>Option 2</span>
+        <button onclick="vote('option2')">Vote</button>
+    </div>
+
+    <div class="option" id="option3">
+        <span>Option 3</span>
+        <button onclick="vote('option3')">Vote</button>
+    </div>
+
+    <div id="result">
+        <h3>Results</h3>
+        <div id="result-option1">Option 1: 0 votes</div>
+        <div id="result-option2">Option 2: 0 votes</div>
+        <div id="result-option3">Option 3: 0 votes</div>
+    </div>
+</div>
+
+<script>
+    let votes = {
+        option1: 0,
+        option2: 0,
+        option3: 0
+    };
+
+    function vote(option) {
+        votes[option]++;
+        updateResults();
+    }
+
+    function updateResults() {
+        document.getElementById('result-option1').innerText = `Option 1: ${votes.option1} votes`;
+        document.getElementById('result-option2').innerText = `Option 2: ${votes.option2} votes`;
+        document.getElementById('result-option3').innerText = `Option 3: ${votes.option3} votes`;
+    }
+</script>
+
+</body>
+</html>
